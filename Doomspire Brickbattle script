@@ -1,0 +1,104 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
+
+local Window = Library.CreateLib("xerss", "RJTheme4")
+
+local Tab = Window:NewTab("Doomspire Brickbattle")
+
+local Section = Tab:NewSection("credits: supergovnuk")
+
+Section:NewButton("WalkSpeed", "ButtonInfo", function()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+end)
+
+Section:NewButton("JumpPower", "ButtonInfo", function()
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = 150
+end)
+
+Section:NewButton("ESP", "ButtonInfo", function()
+    local highlight = Instance.new("Highlight")
+local rS = game:GetService("RunService")
+rS.RenderStepped:Connect(function()
+    for _, v in pairs(game.Players:GetPlayers()) do
+        if not v.Character:FindFirstChild("Highlight") then
+            highlight.FillTransparency = 1
+            highlight:Clone().Parent = v.Character
+            highlight.OutlineColor = v.Team.TeamColor.Color
+    end
+    game.Players.PlayerAdded:Connect(function(plr)
+        plr.CharacterAdded:Connect(function(char)
+            if not char:FindFirstChild("Highlight") then
+                highlight.FillTransparency = 1
+                highlight:Clone().Parent = char
+                highlight.OutlineColor = plr.Team.TeamColor.Color
+            end
+        end)
+    end)
+    end
+end)
+end)
+
+Section:NewButton("Fake Lags(X)", "ButtonInfo", function()
+   loadstring(game:HttpGet("https://paste.gg/p/anonymous/d3492bd620bd4c46b54680ac80b0fa0d/files/161ddd9c992c4ceba3c298458d45188a/raw", true))()
+end)
+
+Section:NewButton("Inf jumps", "ButtonInfo", function()
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")       
+    end)
+
+end)
+
+Section:NewButton("Kill all", "ButtonInfo", function()
+   _G.Stop = false
+ 
+repeat game:GetService("RunService").RenderStepped:Wait()
+for _,v in next, game:GetService("Players"):GetPlayers() do
+if v ~= game:GetService("Players").LocalPlayer then
+local char = v.Character or workspace:FindFirstChild(v.Name)
+if char then
+pcall(function()
+char.Head.Anchored = true
+char.Head.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,2,-2.5)
+end)
+end
+end
+end
+until _G.Stop
+
+end)
+
+local Tab = Window:NewTab("Teleports")
+
+local Section = Tab:NewSection("credits: supergovnuk")
+
+Section:NewButton("Yellow tower down", "ButtonInfo", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(131.563019, 24.7980289, 0.352796227, -0.00144297292, -1.04641501e-07, -0.999998987, 6.19476737e-09, 1, -1.04650546e-07, 0.999998987, -6.3457688e-09, -0.00144297292)
+end)
+
+Section:NewButton("Yellow tower up", "ButtonInfo", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(86, 131, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+Section:NewButton("Red tower down", "ButtonInfo", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-130.719559, 45.1980324, -0.690770745, 0.999921024, 6.84227786e-08, 0.0125670657, -6.95514473e-08, 1, 8.93749643e-08, -0.0125670657, -9.02419686e-08, 0.999921024)
+end)
+
+Section:NewButton("Red tower up", "ButtonInfo", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108.507637, 129.197952, 1.91214347, -0.0126635283, -9.26441004e-08, -0.999919832, -3.08102024e-08, 1, -9.2261331e-08, 0.999919832, 2.9639379e-08, -0.0126635283)
+end)
+
+Section:NewButton("Blue tower down", "ButtonInfo", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0.400000006, 25, 131, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+Section:NewButton("Blue tower up", "ButtonInfo", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2.29999995, 131, 91, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+Section:NewButton("Green tower down", "ButtonInfo", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-0.400000036, 24.7980671, -131, 1, -5.599325e-09, 1.40601142e-14, 5.599325e-09, 1, -3.62869343e-08, -1.38569322e-14, 3.62869343e-08, 1)
+end)
+
+Section:NewButton("Green tower up", "ButtonInfo", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1.4000001, 131.398026, -81, 1, 8.03050071e-08, 4.76869249e-14, -8.03050071e-08, 1, 4.12596606e-08, -4.43735658e-14, -4.12596606e-08, 1)
+end)
